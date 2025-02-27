@@ -1,4 +1,4 @@
-import prisma from "../utils/prisma";
+import prisma from "../lib/prisma";
 
 interface CreateTaskRequest {
   title: string;
@@ -18,7 +18,7 @@ export async function createTask({
       title: title,
       completed: completed,
       userId: userId,
-      createdAt: createdAt ? new Date(createdAt) : undefined, 
+      createdAt: createdAt ? new Date(createdAt) : undefined,
     },
   });
   return insertData;

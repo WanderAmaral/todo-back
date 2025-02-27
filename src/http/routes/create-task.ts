@@ -14,9 +14,18 @@ export const createTaskRoute: FastifyPluginAsyncZod = async (app) => {
           userId: z.string(),
         }),
       },
+      preHandler: async (request, reply) => {
+        try {
+          await request.jwtVerify();
+        } catch (error) {
+          return reply.status(401).send({ message: "Token inválido" });
+        }
+      },
     },
     async (request, reply) => {
-      const { title, completed, createdAt, userId } = request.body;
+      const { title, completed, createdAt } = request.body;
+
+      const userId = request.user.id;
 
       const task = await createTask({
         userId,
