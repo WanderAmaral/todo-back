@@ -7,14 +7,14 @@ export const getTasksRoute: FastifyPluginAsyncZod = async (app) => {
     {
       preHandler: async (request, reply) => {
         try {
-          await request.jwtVerify(); // Verifica o JWT antes de processar a requisição
+          await request.jwtVerify();
         } catch (err) {
           return reply.status(401).send({ message: "Unauthorized" });
         }
       },
     },
     async (request, reply) => {
-      const userId = request.user.id; // Obtém o ID do usuário logado
+      const userId = request.user.id;
 
       if (!userId) {
         return reply.status(401).send({ message: "User not authenticated" });
