@@ -5,6 +5,9 @@ export const getUserTasks = async (userId: string) => {
     where: {
       userId: userId,
     },
+    orderBy: {
+      createdAt: "desc"
+    }
   });
 
   return result;

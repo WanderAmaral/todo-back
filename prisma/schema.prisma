@@ -22,7 +22,7 @@ model User {
 
 
 model Tasks {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(cuid())
   title     String
   completed Boolean
   createdAt DateTime @default(now())
