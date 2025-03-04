@@ -3,7 +3,7 @@ import { getUserTasks } from "../../functions/get-tasks-user";
 
 export const getTasksRoute: FastifyPluginAsyncZod = async (app) => {
   app.get(
-    "/tasks",
+    "/tasks-user",
     {
       preHandler: async (request, reply) => {
         try {

@@ -11,7 +11,6 @@ export const createTaskRoute: FastifyPluginAsyncZod = async (app) => {
           title: z.string().min(3).max(255),
           completed: z.boolean().optional(),
           createdAt: z.date().optional(),
-          userId: z.string(),
         }),
       },
       preHandler: async (request, reply) => {
