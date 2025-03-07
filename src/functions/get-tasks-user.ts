@@ -6,7 +6,7 @@ export const getUserTasks = async (userId: string) => {
       userId: userId,
     },
     orderBy: {
-      createdAt: "desc"
+      createdAt: "asc"
     }
   });
 
