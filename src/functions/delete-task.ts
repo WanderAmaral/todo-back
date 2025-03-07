@@ -7,6 +7,6 @@ export const deleteTask = async (taskId: string) => {
     });
   } catch (error) {
     console.error("Erro ao deletar task:", error);
-    throw new Error("Erro ao deletar tarefa"); // Propaga o erro para o Fastify
+    throw new Error("Erro ao deletar tarefa");
   }
 };

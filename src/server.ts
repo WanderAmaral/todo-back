@@ -15,6 +15,7 @@ import fastifyJWT from "@fastify/jwt";
 import { loginRoute } from "./http/routes/login";
 import { deleteTaskRoute } from "./http/routes/delete-task";
 import { logoutRoute } from "./http/routes/logout";
+import { completeTaskRoute } from "./http/routes/complete-task";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -44,11 +45,12 @@ app.register(fastifyJWT, {
 //User Routes
 app.register(createUserRoute);
 app.register(loginRoute);
+app.register(logoutRoute);
 // Tasks Routes
 app.register(getTasksRoute);
 app.register(createTaskRoute);
 app.register(deleteTaskRoute);
-app.register(logoutRoute);
+app.register(completeTaskRoute);
 
 app.listen({ port: 3333 }).then(() => {
   console.log("HTTP server runnig!");
